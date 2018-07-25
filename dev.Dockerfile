@@ -1,10 +1,10 @@
 FROM node:latest
 
-RUN mkdir -p /frontend
-WORKDIR /frontend
+RUN mkdir -p /DailyAdvisor-PWA
+WORKDIR /DailyAdvisor-PWA
 
-ADD /frontend /frontend
+ADD /DailyAdvisor-PWA /DailyAdvisor-PWA
 
-VOLUME ["/frontend"]
+VOLUME ["/DailyAdvisor-PWA"]
 
 CMD npm install && npm run start
