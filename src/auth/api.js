@@ -1,4 +1,4 @@
-import { http } from '../utils/http';
+import { http } from 'utils/http';
 
 const registerUser = user => http.post('/registration', user);
 const loginUser = user => http.post('/login', user);

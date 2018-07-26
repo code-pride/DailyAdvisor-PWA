@@ -6,9 +6,9 @@ import unknown from '../../assets/unknown.png';
 import { loginUser } from '../../auth/actions';
 import { isLoggedInSelector } from '../../auth/selectors';
 
-import Image from '../../components/Image';
+import Image from 'components/Image';
 import { LoginForm } from './components/LoginForm';
-import SocialLogin from '../../components/SocialLogin';
+import SocialLogin from 'components/SocialLogin';
 
 import * as S from './styled';
 
