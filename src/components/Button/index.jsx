@@ -1,20 +1,24 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import * as S from './styled';
+import { StyledButton } from './styles';
 
-const Button = ({ url, content, onClick, value, type }) => (
+const Button = ({ url, content, onClick }) => (
     <Fragment>
-        {type === 'submit' ? (
-            <S.Button type={type}>{value}</S.Button>
-        ) : url ? (
+        {url ? (
             <NavLink to={url}>
-                <S.Button>{content}</S.Button>
+                <StyledButton>{content}</StyledButton>
             </NavLink>
         ) : (
-            <S.Button onClick={onClick}>{content}</S.Button>
+            <StyledButton onClick={onClick}>{content}</StyledButton>
         )}
     </Fragment>
 );
+
+Button.propTypes = {
+    url: PropTypes.string,
+    content: PropTypes.string.isRequired,
+};
 
 export default Button;

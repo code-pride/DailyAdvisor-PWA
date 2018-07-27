@@ -19,33 +19,5 @@ export function authEpicFactory() {
             }),
         );
 
-    const loginUserEpic = actions$ =>
-        actions$.pipe(
-            ofType(actions.LOGIN_USER),
-            map(action => actions.getCsrf(action.payload)),
-        );
-
-    const csrfEpic = actions$ =>
-        actions$.pipe(
-            ofType(actions.GET_CSRF),
-            switchMap(action =>
-                authApi
-                    .getCsrf(action.payload)
-                    .then(() => actions.getCsrfFulfilled(action.payload))
-                    .catch(actions.getCsrfRejected),
-            ),
-        );
-
-    const csrfFullfilledEpic = actions$ =>
-        actions$.pipe(
-            ofType(actions.GET_CSRF_FULFILLED),
-            switchMap(action =>
-                authApi
-                    .loginUser(action.payload)
-                    .then(actions.loginUserFulfilled)
-                    .catch(actions.loginUserRejected),
-            ),
-        );
-
-    return combineEpics(csrfEpic, csrfFullfilledEpic, registerUserEpic, loginUserEpic);
+    return combineEpics(registerUserEpic);
 }

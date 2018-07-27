@@ -1,16 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import { RegisterForm } from './RegisterForm';
-import { registerUser } from '../../../auth/actions';
+import { giveMeUrl } from '../../../services/Auth/';
 
 class Register extends React.Component {
+    componentDidMount() {
+        giveMeUrl();
+    }
+
     render() {
-        return <RegisterForm onSubmit={this.props.registerUser} />;
+        return <div>Rasdasdasasdasdasegister asdasdcomponent</div>;
     }
 }
 
-export default connect(
-    null,
-    { registerUser },
-)(Register);
+export default Register;
