@@ -22,6 +22,9 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+// application path
+const appPath = path.join(__dirname, '..', 'src');
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -84,7 +87,14 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+      components: path.resolve(appPath, 'components'),
+      pages: path.resolve(appPath, 'pages'),
+      store: path.resolve(appPath, 'store'),
+      translations: path.resolve(appPath, 'translations'),
+      constants: path.resolve(appPath, 'constants'),
+      assets: path.resolve(appPath, 'assets'),
+      utils: path.resolve(appPath, 'utils'),
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
