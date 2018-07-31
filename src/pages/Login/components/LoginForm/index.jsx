@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Field, withFormik } from 'formik';
 import * as yup from 'yup';
 
-import Button from '../../../../components/Button';
+import Button from 'components/Button';
 
 const InnerForm = ({ touched, errors }) => (
     <Form>

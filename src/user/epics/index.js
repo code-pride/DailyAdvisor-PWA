@@ -3,7 +3,7 @@ import { switchMap } from 'rxjs/operators';
 
 import * as actions from '../actions';
 import { userApi } from '../api';
-import { getCookie } from '../../utils/cookie';
+import { getCookie } from 'utils/cookie';
 
 export function userDataEpicFactory() {
     const getUserDataEpic = action$ =>

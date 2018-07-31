@@ -4,15 +4,15 @@ import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 
-import store, { history } from './store';
+import store, { history } from 'store';
 
-import Login from './pages/Login';
-import Register from './pages/Register/Register';
-import AfterRegister from './pages/Register/AfterRegister';
-import RegisterConfirm from './pages/Register/RegisterConfirm';
-import About from './pages/About';
-import Main from './pages/Main';
-import NotFound from './pages/NotFound';
+import Login from 'pages/Login';
+import Register from 'pages/Register/Register';
+import AfterRegister from 'pages/Register/AfterRegister';
+import RegisterConfirm from 'pages/Register/RegisterConfirm';
+import About from 'pages/About';
+import Main from 'pages/Main';
+import NotFound from 'pages/NotFound';
 
 import { StyledMainApp } from './styles';
 
