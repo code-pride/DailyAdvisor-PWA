@@ -1,15 +1,25 @@
 import React, { Fragment } from 'react';
-import { Route } from 'react-router';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-import Calendar from '../../calendar';
+import { getUserData } from '../../user/actions';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
+    componentDidMount() {
+        this.props.getUserData();
+    }
+
     render() {
         return (
             <Fragment>
                 <div>Main</div>
-                <Route path="/main/calendar" component={Calendar} />
+                <NavLink to={'../'}>dupa</NavLink>
             </Fragment>
         );
     }
 }
+
+export default connect(
+    null,
+    { getUserData },
+)(Main);
