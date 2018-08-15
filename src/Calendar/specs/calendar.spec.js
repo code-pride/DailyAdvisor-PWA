@@ -1,4 +1,6 @@
-export const data = {
+import { trainingDaysSelector } from '../selectors';
+
+const data = {
     trainName: 'Trening rozwojowy',
     trainText: 'Trening na wszytskie partie',
     trainings: [
@@ -89,3 +91,29 @@ export const data = {
         },
     ],
 };
+
+describe('Calendar', () => {
+    it('Calculates dates', () => {
+        const state = {
+            calendar: {
+                month: 7,
+            },
+        };
+
+        const trainingDays = [
+            '7215',
+            '7216',
+            '7217',
+            '7218',
+            '7219',
+            '7220',
+            '7221',
+            '7223',
+            '7230',
+            '7231',
+            '7237',
+        ];
+
+        expect(Object.keys(trainingDaysSelector(state, data))).toEqual(trainingDays);
+    });
+});

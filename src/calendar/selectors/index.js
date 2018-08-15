@@ -1,10 +1,8 @@
 import { createSelector } from 'reselect';
 import moment from 'moment';
 import _range from 'lodash/range';
-import _defaults from 'lodash/defaults';
+import _defaultTo from 'lodash/defaultTo';
 import _isEmpty from 'lodash/isEmpty';
-
-import { data } from '../data';
 
 export const yearSelector = createSelector(
     state => state.calendar.month,
@@ -78,8 +76,8 @@ const mergeTrainings = (...allTrainings) =>
                 return {
                     ...trainingsInDay,
                     [key]: [
-                        ..._defaults(trainingsInDay[key], {}),
-                        ..._defaults(trainings[key], {}),
+                        ..._defaultTo(trainingsInDay[key], []),
+                        ..._defaultTo(trainings[key], []),
                         ...value,
                     ],
                 };
@@ -95,9 +93,8 @@ const calculateDailyTrainings = (trainings, month, day) => {
     return trainings.reduce((acc, t) => {
         const key = `${month}${day}`;
         if (!acc[key]) {
-            acc[key] = {};
+            acc[key] = [];
         }
-
         return {
             ...acc,
             [key]: [...acc[key], t],
@@ -135,9 +132,10 @@ const calculateMonthlyTrainings = (trainings, month, day, days) => {
 };
 
 export const trainingDaysSelector = createSelector(
+    (_, data) => data,
     state => state.calendar.month,
     dayWeekSelectors,
-    (month, days) => {
+    (data, month, days) => {
         const trainingDays = days.reduce((acc, day) => {
             const date = moment()
                 .month(month)
@@ -162,9 +160,9 @@ export const trainingDaysSelector = createSelector(
 
             return {
                 ...acc,
-                daily: { ..._defaults(acc.daily, {}), ...dailyTrainings },
-                weekly: { ..._defaults(acc.weekly, {}), ...weeklyTrainings },
-                monthly: { ..._defaults(acc.monthly, {}), ...monthlyTrainings },
+                daily: { ..._defaultTo(acc.daily, {}), ...dailyTrainings },
+                weekly: { ..._defaultTo(acc.weekly, {}), ...weeklyTrainings },
+                monthly: { ..._defaultTo(acc.monthly, {}), ...monthlyTrainings },
             };
         }, {});
 

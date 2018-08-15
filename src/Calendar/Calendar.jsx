@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as S from './styled';
 import { daysSelector, monthNameSelector, yearSelector, trainingDaysSelector } from './selectors';
 import { incrementMonth, decrementMonth } from './actions';
+import { data } from './data';
 
 class Calendar extends React.Component {
     render() {
@@ -38,7 +39,7 @@ function mapStateToProps(state) {
         year: yearSelector(state),
         days: daysSelector(state),
         monthName: monthNameSelector(state),
-        trainingDays: trainingDaysSelector(state),
+        trainingDays: trainingDaysSelector(state, data),
         month: state.calendar.month,
     };
 }
