@@ -25,7 +25,7 @@ class Calendar extends React.Component {
                             topEdge={i <= 6}
                             key={day.name}
                         >
-                            {day.name}
+                            {day.numberInMonth}
                         </S.Day>
                     ))}
                 </S.Days>

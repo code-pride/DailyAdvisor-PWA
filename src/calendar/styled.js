@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const dayWidth = 120;
+const dayWidth = 40;
 
 export const Calendar = styled.div`
     width: ${dayWidth * 7}px;
@@ -19,7 +19,8 @@ export const Days = styled.div`
 `;
 
 export const Day = styled.div`
-    height: 50px;
+    border-radius: 10px;
+    height: ${dayWidth}px;
     width: ${dayWidth}px;
 
     background: ${props => (props.isTraining ? 'red' : 'white')}
