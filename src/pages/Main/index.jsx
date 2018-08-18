@@ -1,8 +1,16 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 
 import { getUserData } from '../../user/actions';
+
+import Header from 'components/Header';
+import BottomNavigation from 'components/BottomNavigation';
+
+import Dashboard from 'pages/Dashboard';
+import Profile from 'pages/Profile';
+import Calendar from 'pages/Calendar';
+import NotFound from 'pages/NotFound';
 
 class Main extends React.Component {
     componentDidMount() {
@@ -10,10 +18,18 @@ class Main extends React.Component {
     }
 
     render() {
+        const { path } = this.props.match;
+
         return (
             <Fragment>
-                <div>Main</div>
-                <NavLink to={'../'}>dupa</NavLink>
+                <Header />
+                <Switch>
+                    <Route exact path={`${path}`} component={Dashboard} />
+                    <Route path={`${path}/profile`} component={Profile} />
+                    <Route path={`${path}/calendar`} component={Calendar} />
+                    <Route component={NotFound} />
+                </Switch>
+                <BottomNavigation />
             </Fragment>
         );
     }
