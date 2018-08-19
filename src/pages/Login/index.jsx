@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import unknown from '../../assets/unknown.png';
 import { loginUser } from '../../auth/actions';
-import { isLoggedInSelector } from '../../auth/selectors';
 
 import Image from 'components/Image';
 import { LoginForm } from './components/LoginForm';
 import SocialLogin from 'components/SocialLogin';
+import Button from 'components/Button';
 
 import * as S from './styled';
 
@@ -24,10 +23,6 @@ class Login extends React.Component {
     };
 
     render() {
-        if (this.props.isLoggedIn === true) {
-            return <Redirect to="/main" />;
-        }
-
         return (
             <S.Container>
                 <S.LoginContainer>
@@ -44,6 +39,10 @@ class Login extends React.Component {
                         {this.state.isLoginFormDisplayed ? (
                             <LoginForm onSubmit={this.props.loginUser} />
                         ) : null}
+
+                        <div style={{ color: 'white' }}>lub</div>
+
+                        <Button value="Zarejestruj" url={`/register`} />
                     </S.LoginBox>
                 </S.LoginContainer>
             </S.Container>
@@ -51,13 +50,7 @@ class Login extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        isLoggedIn: isLoggedInSelector(state),
-    };
-}
-
 export default connect(
-    mapStateToProps,
+    null,
     { loginUser },
 )(Login);

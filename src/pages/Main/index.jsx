@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 
 import { getUserData } from '../../user/actions';
+import { logoutUser } from '../../auth/actions';
 
 import Header from 'components/Header';
 import BottomNavigation from 'components/BottomNavigation';
@@ -23,6 +24,7 @@ class Main extends React.Component {
         return (
             <Fragment>
                 <Header />
+                <button onClick={this.props.logoutUser}>Wyloguj</button>
                 <Switch>
                     <Route exact path={`${path}`} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
@@ -37,5 +39,5 @@ class Main extends React.Component {
 
 export default connect(
     null,
-    { getUserData },
+    { getUserData, logoutUser },
 )(Main);

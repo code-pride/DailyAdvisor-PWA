@@ -19,6 +19,17 @@ export function authEpicFactory() {
             }),
         );
 
+    const registerUserConfirm = action$ =>
+        action$.pipe(
+            ofType(actions.REGISTER_USER_CONFIRM),
+            switchMap(action =>
+                authApi
+                    .registerUserConfirm(action.payload)
+                    .then(actions.registerUserConfirmFulfilled)
+                    .catch(actions.registerUserConfirmRejected),
+            ),
+        );
+
     const loginUserEpic = actions$ =>
         actions$.pipe(
             ofType(actions.LOGIN_USER),
@@ -47,5 +58,23 @@ export function authEpicFactory() {
             ),
         );
 
-    return combineEpics(csrfEpic, csrfFullfilledEpic, registerUserEpic, loginUserEpic);
+    const logoutUserEpic = action$ =>
+        action$.pipe(
+            ofType(actions.LOGOUT_USER),
+            switchMap(action =>
+                authApi
+                    .logoutUser()
+                    .then(actions.logoutUserFulfilled)
+                    .catch(actions.logoutUserRejected),
+            ),
+        );
+
+    return combineEpics(
+        csrfEpic,
+        csrfFullfilledEpic,
+        registerUserEpic,
+        loginUserEpic,
+        logoutUserEpic,
+        registerUserConfirm,
+    );
 }
