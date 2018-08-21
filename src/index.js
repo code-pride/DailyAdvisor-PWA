@@ -13,7 +13,6 @@ import Main from 'pages/Main';
 import NotFound from 'pages/NotFound';
 
 import { StyledMainApp } from './styles';
-import Calendar from 'pages/Calendar';
 
 const target = document.querySelector('#root');
 
@@ -23,7 +22,6 @@ render(
             <Router history={history}>
                 <StyledMainApp>
                     <Switch>
-                        <Calendar />
                         <AuthenticatedRoutes path="/main" component={Main} />
                         <NonAuthenticatedRoutes path="/" />
                         <Route component={NotFound} />

@@ -26,7 +26,7 @@ class Main extends React.Component {
                 <Header />
                 <button onClick={this.props.logoutUser}>Wyloguj</button>
                 <Switch>
-                    <Route exact path={`${path}`} component={Dashboard} />
+                    <Route exact path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
                     <Route path={`${path}/calendar`} component={Calendar} />
                     <Route component={NotFound} />
