@@ -3,6 +3,9 @@ import styled from 'styled-components';
 const dayWidth = 120;
 
 export const Calendar = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: ${dayWidth * 7}px;
 `;
 

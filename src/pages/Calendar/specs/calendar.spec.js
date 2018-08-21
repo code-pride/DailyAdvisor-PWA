@@ -97,6 +97,7 @@ describe('Calendar', () => {
         const state = {
             calendar: {
                 month: 7,
+                data,
             },
         };
 

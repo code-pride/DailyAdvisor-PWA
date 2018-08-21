@@ -132,7 +132,7 @@ const calculateMonthlyTrainings = (trainings, month, day, days) => {
 };
 
 export const trainingDaysSelector = createSelector(
-    (_, data) => data,
+    state => state.calendar.data,
     state => state.calendar.month,
     dayWeekSelectors,
     (data, month, days) => {
