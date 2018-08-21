@@ -40,6 +40,10 @@ export const daysSelector = createSelector(
                 .month(month)
                 .dayOfYear(day)
                 .format('D dddd'),
+            numberInMonth: moment()
+                .month(month)
+                .dayOfYear(day)
+                .format('D'),
             unique: `${month}${day}`,
             day,
         }));
