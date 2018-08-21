@@ -1,16 +1,17 @@
 import * as actions from '../actions';
+import * as authActions from '../../auth/actions';
 
-const initialState = {
-    user: null,
-};
+const initialState = {};
 
-export function userReducer(state = initialState, action) {
+export function user(state = initialState, action) {
     switch (action.type) {
         case actions.GET_USER_DATA_FULFILLED:
             return {
                 ...state,
-                user: action.payload.data,
+                ...action.payload.data,
             };
+        case authActions.LOGOUT_USER_FULFILLED:
+            return initialState;
         default:
             return state;
     }

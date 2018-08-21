@@ -16,6 +16,24 @@ export const registerUserRejected = payload => ({
     payload,
 });
 
+export const REGISTER_USER_CONFIRM = 'REGISTER_USER_CONFIRM';
+export const registerUserConfirm = payload => ({
+    type: REGISTER_USER_CONFIRM,
+    payload,
+});
+
+export const REGISTER_USER_CONFIRM_FULFILLED = 'REGISTER_USER_CONFIRM_FULFILLED';
+export const registerUserConfirmFulfilled = payload => ({
+    type: REGISTER_USER_CONFIRM_FULFILLED,
+    payload,
+});
+
+export const REGISTER_USER_CONFIRM_REJECTED = 'REGISTER_USER_CONFIRM_REJECTED';
+export const registerUserConfirmRejected = payload => ({
+    type: REGISTER_USER_CONFIRM_REJECTED,
+    payload,
+});
+
 export const LOGIN_USER = 'LOGIN_USER';
 export const loginUser = payload => ({
     type: LOGIN_USER,
@@ -50,4 +68,19 @@ export const GET_CSRF_REJECTED = 'GET_CSRF_REJECTED';
 export const getCsrfRejected = payload => ({
     type: GET_CSRF_REJECTED,
     payload,
+});
+
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const logoutUser = () => ({
+    type: LOGOUT_USER,
+});
+
+export const LOGOUT_USER_FULFILLED = 'LOGOUT_USER_FULFILLED';
+export const logoutUserFulfilled = () => ({
+    type: LOGOUT_USER_FULFILLED,
+});
+
+export const LOGOUT_USER_REJECTED = 'LOGOUT_USER_REJECTED';
+export const logoutUserRejected = () => ({
+    type: LOGOUT_USER_REJECTED,
 });

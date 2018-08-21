@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 
-import { userReducer } from './user/reducers/';
-import { authReducer } from './auth/reducers';
-import { calendar } from './Calendar/reducers/calendar';
+import { user } from './user/reducers/';
+import { auth } from './auth/reducers';
+
+import { calendar } from 'pages/Calendar/reducers/calendar';
 
 export const rootReducer = combineReducers({
-    authReducer,
-    userReducer,
+    auth,
+    user,
     calendar,
 });

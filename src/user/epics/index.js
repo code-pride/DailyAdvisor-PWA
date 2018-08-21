@@ -2,8 +2,12 @@ import { combineEpics, ofType } from 'redux-observable';
 import { switchMap } from 'rxjs/operators';
 
 import * as actions from '../actions';
-import { userApi } from '../api';
-import { getCookie } from 'utils/cookie';
+
+// this is mocked one api, replace with real later
+import { userApi } from '../mockedApi';
+
+// real api
+// import { userApi } from '../api';
 
 export function userDataEpicFactory() {
     const getUserDataEpic = action$ =>
@@ -11,16 +15,8 @@ export function userDataEpicFactory() {
             ofType(actions.GET_USER_DATA),
             switchMap(action =>
                 userApi
-                    .getUserProfile()
-                    .then(data => {
-                        console.dir(data);
-
-                        const ciastko = getCookie('_secu');
-
-                        console.log(ciastko);
-
-                        return actions.getUserDataFulfilled(data);
-                    })
+                    .getOwnProfile()
+                    .then(data => actions.getUserDataFulfilled(data))
                     .catch(actions.getUserDataRejected),
             ),
         );
