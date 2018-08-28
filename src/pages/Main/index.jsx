@@ -13,6 +13,8 @@ import Dashboard from 'pages/Dashboard';
 import Profile from 'pages/Profile';
 import Calendar from 'pages/Calendar';
 import NotFound from 'pages/NotFound';
+import Add from '../../advertisement/pages/Add';
+import Show from '../../advertisement/pages/Show';
 
 import { user, userModeSettings, userMode } from '../../user/selectors';
 
@@ -38,8 +40,11 @@ class Main extends React.Component {
                     <Route exact path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
                     <Route path={`${path}/calendar`} component={Calendar} />
+                    <Route path={`${path}/advertisement/add`} component={Add} />
+                    <Route path={`${path}/advertisement/show`} component={Show} />
                     <Route component={NotFound} />
                 </Switch>
+
                 {this.props.user.userType === 'coach' ? (
                     <FloatingSwitcher userMode={this.props.userMode} onClick={this.click} />
                 ) : null}

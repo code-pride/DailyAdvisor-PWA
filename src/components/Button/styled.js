@@ -11,6 +11,7 @@ export const Button = styled.button`
     text-decoration: none;
     text-transform: uppercase;
     padding: 10px 35px;
+    margin: 5px;
     border-radius: 50px;
     border: 0;
     overflow: hidden;
