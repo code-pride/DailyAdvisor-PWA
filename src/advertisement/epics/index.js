@@ -9,15 +9,15 @@ import { advertApi } from '../mockedApi';
 // real api
 // import { userApi } from '../api';
 
-export function AdvertDataEpicFactory() {
+export function advertDataEpicFactory() {
     const getAllAdvertEpic = action$ =>
         action$.pipe(
             ofType(actions.ADVERT_GET_ALL_ADVERTS),
             switchMap(action =>
                 advertApi
                     .getAllAdverts()
-                    .then(response => console.log(response))
-                    .catch(error => console.log(error)),
+                    .then(actions.getAllAdvertsFulfilled)
+                    .catch(actions.getAllAdvertsRejected),
             ),
         );
 
@@ -32,6 +32,17 @@ export function AdvertDataEpicFactory() {
             ),
         );
 
+    const getAdvert = action$ =>
+        action$.pipe(
+            ofType(actions.ADVERT_GET_ADVERT),
+            switchMap(action =>
+                advertApi
+                    .getAdvert()
+                    .then(actions.getAdvertFulfilled)
+                    .catch(actions.getAdvertRejected),
+            ),
+        );
+
     const addAdvert = action$ =>
         action$.pipe(
             ofType(actions.ADVERT_ADD_ADVERT),
@@ -43,5 +54,5 @@ export function AdvertDataEpicFactory() {
             ),
         );
 
-    return combineEpics(getAllAdvertEpic, getAdvertByIdEpic, addAdvert);
+    return combineEpics(getAllAdvertEpic, getAdvert, getAdvertByIdEpic, addAdvert);
 }
