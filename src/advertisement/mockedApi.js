@@ -46,7 +46,7 @@ const addAdvert = () => {
     });
 };
 
-export const userApi = {
+export const advertApi = {
     getAdvert,
     getAdvertByUserId,
     getAllAdverts,
