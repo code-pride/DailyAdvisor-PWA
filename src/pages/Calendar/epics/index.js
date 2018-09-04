@@ -5,29 +5,20 @@ import * as actions from '../actions';
 import { calendarApi } from '../api';
 
 export function calendarEpicFactory() {
-    const fetchTrainingsEpic = action$ =>
+    const fetchEventsEpic = action$ =>
         action$.pipe(
-            ofType(actions.CALENDAR_FETCH_TRAININGS),
+            ofType(actions.CALENDAR_FETCH_EVENTS),
             delay(500),
             switchMap(() =>
-                calendarApi
-                    .fetchTrainings()
-                    .then(actions.calendarFetchTrainingsFulfilled)
-                    .catch(actions.calendarFetchTrainingsRejected),
+                Promise.all([
+                    calendarApi.fetchTrainings(),
+                    calendarApi.fetchDiets(),
+                    calendarApi.fetchMeetings(),
+                ])
+                    .then(actions.calendarFetchEventsFulfilled)
+                    .catch(actions.calendarFetchEventsRejected),
             ),
         );
 
-    const fetchDietsEpic = action$ =>
-        action$.pipe(
-            ofType(actions.CALENDAR_FETCH_DIETS),
-            delay(500),
-            switchMap(() =>
-                calendarApi
-                    .fetchDiets()
-                    .then(actions.calendarFetchDietsFulfilled)
-                    .catch(actions.calendarFetchDietsRejected),
-            ),
-        );
-
-    return combineEpics(fetchTrainingsEpic, fetchDietsEpic);
+    return combineEpics(fetchEventsEpic);
 }

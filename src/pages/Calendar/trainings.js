@@ -1,7 +1,7 @@
 export const trainings = {
     trainName: 'Trening rozwojowy',
     trainText: 'Trening na wszytskie partie',
-    trainings: [
+    data: [
         {
             event: {
                 startDate: '2018-08-04T00:00:00.000Z',

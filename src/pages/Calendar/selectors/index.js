@@ -175,31 +175,44 @@ const calculateEventsByDay = (data, month, days) => {
 };
 
 export const trainingDaysSelector = createSelector(
-    state => state.calendar.trainingsData,
+    state => state.calendar.trainings,
     state => state.calendar.month,
     dayWeekSelectors,
-    (data, month, days) => {
+    (trainings, month, days) => {
         const event = 'trainings';
-        const trainingDays = calculateEventsByDay(data[event], month, days);
+        const trainingDays = calculateEventsByDay(trainings.data, month, days);
 
         return mergeTrainings(...Object.values(trainingDays), event);
     },
 );
 
-export const dietsDaysSelector = createSelector(
-    state => state.calendar.dietsData,
+export const mealsDaysSelector = createSelector(
+    state => state.calendar.meals,
     state => state.calendar.month,
     dayWeekSelectors,
-    (data, month, days) => {
+    (meals, month, days) => {
         const event = 'meals';
-        const dietsDays = calculateEventsByDay(data[event], month, days);
+        const mealDays = calculateEventsByDay(meals.data, month, days);
 
-        return mergeTrainings(...Object.values(dietsDays), event);
+        return mergeTrainings(...Object.values(mealDays), event);
+    },
+);
+
+export const meetingDaysSelector = createSelector(
+    state => state.calendar.meetings,
+    state => state.calendar.month,
+    dayWeekSelectors,
+    (meetings, month, days) => {
+        const event = 'meetings';
+        const meetingDays = calculateEventsByDay(meetings.data, month, days);
+
+        return mergeTrainings(...Object.values(meetingDays), event);
     },
 );
 
 export const eventsDaysSelector = createSelector(
     trainingDaysSelector,
-    dietsDaysSelector,
-    (trainings, diets) => _merge({}, trainings, diets),
+    mealsDaysSelector,
+    meetingDaysSelector,
+    (trainings, meals, meetings) => _merge({}, trainings, meals, meetings),
 );

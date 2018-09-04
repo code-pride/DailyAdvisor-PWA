@@ -4,20 +4,22 @@ import Spinner from 'react-svg-spinner';
 
 import * as S from './styled';
 import { daysSelector, monthNameSelector, yearSelector, eventsDaysSelector } from './selectors';
-import {
-    calendarIncrementMonth,
-    calendarDecrementMonth,
-    calendarFetchTrainings,
-    calendarFetchDiets,
-} from './actions';
+import { calendarIncrementMonth, calendarDecrementMonth, calendarFetchEvents } from './actions';
 
 class Calendar extends React.Component {
     componentDidMount() {
-        this.props.calendarFetchTrainings();
-        this.props.calendarFetchDiets();
+        this.props.calendarFetchEvents();
     }
 
-    isEvent = (unique, type) => this.props.events[unique] && this.props.events[unique][type];
+    isEvent = (unique, type) =>
+        this.props.events[unique] && this.props.events[unique][type] && type;
+
+    getEventsToDay = unique =>
+        [
+            this.isEvent(unique, 'trainings'),
+            this.isEvent(unique, 'meals'),
+            this.isEvent(unique, 'meetings'),
+        ].filter(x => x);
 
     render() {
         return (
@@ -34,8 +36,7 @@ class Calendar extends React.Component {
                         <S.Days>
                             {this.props.days.map((day, i) => (
                                 <S.Day
-                                    training={this.isEvent(day.unique, 'trainings')}
-                                    meal={this.isEvent(day.unique, 'meals')}
+                                    events={this.getEventsToDay(day.unique)}
                                     leftEdge={i % 7 === 0}
                                     topEdge={i <= 6}
                                     key={day.name}
@@ -65,5 +66,5 @@ function mapStateToProps(state) {
 }
 export default connect(
     mapStateToProps,
-    { calendarIncrementMonth, calendarDecrementMonth, calendarFetchTrainings, calendarFetchDiets },
+    { calendarIncrementMonth, calendarDecrementMonth, calendarFetchEvents },
 )(Calendar);

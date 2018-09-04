@@ -1,5 +1,5 @@
 export const diet = {
-    meals: [
+    data: [
         {
             event: {
                 startDate: '2018-09-23T18:25:43.511Z',
