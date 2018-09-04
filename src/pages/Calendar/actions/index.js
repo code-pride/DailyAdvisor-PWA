@@ -24,3 +24,20 @@ export const calendarFetchTrainingsRejected = errorMsg => ({
     type: CALENDAR_FETCH_TRAININGS_REJECTED,
     error: errorMsg,
 });
+
+export const CALENDAR_FETCH_DIETS = '[CALENDAR] FETCH_DIETS';
+export const calendarFetchDiets = () => ({
+    type: CALENDAR_FETCH_DIETS,
+});
+
+export const CALENDAR_FETCH_DIETS_FULFILLED = '[CALENDAR] FETCH_DIETS_FULFILLED';
+export const calendarFetchDietsFulfilled = diets => ({
+    type: CALENDAR_FETCH_DIETS_FULFILLED,
+    payload: diets,
+});
+
+export const CALENDAR_FETCH_DIETS_REJECTED = '[CALENDAR] FETCH_DIETS_REJECTED';
+export const calendarFetchDietsRejected = errorMsg => ({
+    type: CALENDAR_FETCH_DIETS_REJECTED,
+    error: errorMsg,
+});

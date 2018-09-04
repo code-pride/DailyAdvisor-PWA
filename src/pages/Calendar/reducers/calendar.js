@@ -5,8 +5,11 @@ const month = moment().month();
 
 const initialState = {
     month,
-    data: {
+    trainingsData: {
         trainings: [],
+    },
+    dietsData: {
+        meals: [],
     },
     isLoading: false,
 };
@@ -26,13 +29,12 @@ export function calendar(state = initialState, action) {
         case actions.CALENDAR_FETCH_TRAININGS_FULFILLED:
             return {
                 ...state,
-                data: action.payload,
-                isLoading: false,
+                trainingsData: action.payload,
             };
-        case actions.CALENDAR_FETCH_TRAININGS:
+        case actions.CALENDAR_FETCH_DIETS_FULFILLED:
             return {
                 ...state,
-                isLoading: true,
+                dietsData: action.payload,
             };
         default:
             return state;

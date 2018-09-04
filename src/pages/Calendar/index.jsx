@@ -3,12 +3,18 @@ import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
 
 import * as S from './styled';
-import { daysSelector, monthNameSelector, yearSelector, trainingDaysSelector } from './selectors';
-import { calendarIncrementMonth, calendarDecrementMonth, calendarFetchTrainings } from './actions';
+import { daysSelector, monthNameSelector, yearSelector, eventsDaysSelector } from './selectors';
+import {
+    calendarIncrementMonth,
+    calendarDecrementMonth,
+    calendarFetchTrainings,
+    calendarFetchDiets,
+} from './actions';
 
 class Calendar extends React.Component {
     componentDidMount() {
         this.props.calendarFetchTrainings();
+        this.props.calendarFetchDiets();
     }
 
     render() {
@@ -26,7 +32,7 @@ class Calendar extends React.Component {
                         <S.Days>
                             {this.props.days.map((day, i) => (
                                 <S.Day
-                                    isTraining={this.props.trainingDays[day.unique]}
+                                    isTraining={this.props.events[day.unique]}
                                     leftEdge={i % 7 === 0}
                                     topEdge={i <= 6}
                                     key={day.name}
@@ -49,13 +55,12 @@ function mapStateToProps(state) {
         year: yearSelector(state),
         days: daysSelector(state),
         monthName: monthNameSelector(state),
-        trainingDays: trainingDaysSelector(state),
+        events: eventsDaysSelector(state),
         isLoading: state.calendar.isLoading,
         month: state.calendar.month,
     };
 }
-
 export default connect(
     mapStateToProps,
-    { calendarIncrementMonth, calendarDecrementMonth, calendarFetchTrainings },
+    { calendarIncrementMonth, calendarDecrementMonth, calendarFetchTrainings, calendarFetchDiets },
 )(Calendar);
