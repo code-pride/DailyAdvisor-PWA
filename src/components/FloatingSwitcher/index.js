@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import coach from '../../assets/icons/coach.svg';
 import client from '../../assets/icons/client.svg';

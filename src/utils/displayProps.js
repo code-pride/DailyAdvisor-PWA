@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const DebugDisplayProps = props => (
     <div style={{ margin: '1rem 0' }}>
