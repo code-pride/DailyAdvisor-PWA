@@ -39,7 +39,7 @@ export const trainings = {
         {
             event: {
                 startDate: '2018-08-03T00:00:00.000Z',
-                endDate: '2018-10-10T00:00:00.000Z',
+                endDate: '2018-09-26T00:00:00.000Z',
                 startTime: '18:00:00',
                 endTime: '19:30:00',
                 isFullDayEvent: false,

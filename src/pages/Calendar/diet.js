@@ -24,8 +24,8 @@ export const diet = {
         },
         {
             event: {
-                startDate: '2018-08-23T18:25:43.511Z',
-                endDate: '2018-08-23T18:25:43.511Z',
+                startDate: '2018-09-28T18:25:43.511Z',
+                endDate: '2018-09-30T18:25:43.511Z',
                 startTime: '13:20:31',
                 endTime: '13:26:54',
                 isFullDayEvent: false,
@@ -35,7 +35,7 @@ export const diet = {
                     day_of_week: 2,
                     max_num_of_occurrences: 0,
                     recurringType: {
-                        recurringName: 'weekly',
+                        recurringName: 'daily',
                     },
                 },
             },
