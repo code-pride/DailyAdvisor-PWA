@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Image from 'components/Image';
@@ -28,10 +28,10 @@ const Profile = props =>
             </S.UserData>
 
             {props.settings.isItCoach ? (
-                <Fragment>
+                <React.Fragment>
                     <Button url={`/main/advertisement/add`} value="Dodaj advertisement" />
                     <Button url={`/main/advertisement/show`} value="Wyświetl advertisement" />
-                </Fragment>
+                </React.Fragment>
             ) : null}
 
             {props.user && props.user.userType === 'client' ? (

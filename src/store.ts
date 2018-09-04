@@ -13,11 +13,11 @@ export const history = createHistory();
 const historyMiddleware = routerMiddleware(history);
 
 const initialState = {};
-const enhancers = [];
+const enhancers: any[] = [];
 const middleware = [epicMiddleware, historyMiddleware];
 
 if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
+    const devToolsExtension = (window as any).__REDUX_DEVTOOLS_EXTENSION__;
 
     if (typeof devToolsExtension === 'function') {
         enhancers.push(devToolsExtension());
