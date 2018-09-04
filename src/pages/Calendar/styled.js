@@ -26,7 +26,15 @@ export const Day = styled.div`
     height: ${dayWidth}px;
     width: ${dayWidth}px;
 
-    background: ${props => (props.isTraining ? 'red' : 'white')};
+    background: ${props => {
+        const isEverything = props.training && props.meal;
+        const trainingColor = 'red';
+        const mealColor = 'blue';
+        if (isEverything) {
+            return `linear-gradient(to right, ${trainingColor} 0%, ${trainingColor} 50%, ${mealColor} 50%, ${mealColor} 100%);`;
+        }
+        return props.training ? trainingColor : props.meal ? mealColor : 'white';
+    }};
 
     border: 1px solid black;
     border-top: ${props => (props.topEdge ? '1px solid black' : 'none')};

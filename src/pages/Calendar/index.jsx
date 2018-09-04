@@ -17,6 +17,8 @@ class Calendar extends React.Component {
         this.props.calendarFetchDiets();
     }
 
+    isEvent = (unique, type) => this.props.events[unique] && this.props.events[unique][type];
+
     render() {
         return (
             <S.Calendar>
@@ -32,7 +34,8 @@ class Calendar extends React.Component {
                         <S.Days>
                             {this.props.days.map((day, i) => (
                                 <S.Day
-                                    isTraining={this.props.events[day.unique]}
+                                    training={this.isEvent(day.unique, 'trainings')}
+                                    meal={this.isEvent(day.unique, 'meals')}
                                     leftEdge={i % 7 === 0}
                                     topEdge={i <= 6}
                                     key={day.name}
