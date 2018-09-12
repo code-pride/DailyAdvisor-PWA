@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Form, withFormik, Field } from 'formik';
 import * as yup from 'yup';
 import { omit as _omit } from 'lodash';

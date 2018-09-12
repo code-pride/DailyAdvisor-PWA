@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import TagLine from 'components/TagLine';
 
-import * as S from './styled.js';
+import * as S from './styled';
 
 const Tile = props => {
     return (

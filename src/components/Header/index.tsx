@@ -1,16 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { withRouter } from 'react-router';
 
-import calendar from '../../assets/icons/calendar.svg';
 import avatar from '../../assets/avatar.png';
 import arrowLeft from '../../assets/icons/arrow_left.svg';
+import calendar from '../../assets/icons/calendar.svg';
 
 import IconButton from 'components/IconButton';
 import Image from 'components/Image';
 
-import * as S from './styled.js';
+import * as S from './styled';
 
 const Header = props => {
     const { pathname } = props.location;

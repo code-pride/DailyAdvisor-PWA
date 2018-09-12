@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Image from 'components/Image';
@@ -11,7 +11,7 @@ import { imageStorage } from 'constants/urls';
 
 import boxCoach from '../../assets/boxCoach.png';
 
-import * as S from './styled.js';
+import * as S from './styled';
 
 const Profile = props => {
     return (
