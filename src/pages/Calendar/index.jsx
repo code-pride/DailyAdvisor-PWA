@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
+import _defaults from 'lodash/defaults';
 
 import * as S from './styled';
 import { daysSelector, monthNameSelector, yearSelector, eventsDaysSelector } from './selectors';
@@ -10,16 +11,6 @@ class Calendar extends React.Component {
     componentDidMount() {
         this.props.calendarFetchEvents();
     }
-
-    isEvent = (unique, type) =>
-        this.props.events[unique] && this.props.events[unique][type] && type;
-
-    getEventsToDay = unique =>
-        [
-            this.isEvent(unique, 'trainings'),
-            this.isEvent(unique, 'meals'),
-            this.isEvent(unique, 'meetings'),
-        ].filter(x => x);
 
     render() {
         return (
@@ -36,7 +27,7 @@ class Calendar extends React.Component {
                         <S.Days>
                             {this.props.days.map((day, i) => (
                                 <S.Day
-                                    events={this.getEventsToDay(day.unique)}
+                                    events={Object.keys(_defaults(this.props.events[day.unique]))}
                                     leftEdge={i % 7 === 0}
                                     topEdge={i <= 6}
                                     key={day.name}
