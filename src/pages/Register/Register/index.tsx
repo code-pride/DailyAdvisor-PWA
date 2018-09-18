@@ -7,11 +7,11 @@ import Image from 'components/Image';
 
 import * as S from './styled';
 
-import { RegisterForm } from './RegisterForm';
 import { registerUser } from '../../../auth/actions';
+import { RegisterForm } from './RegisterForm';
 
-class Register extends React.Component {
-    render() {
+class Register extends React.Component<any, any> {
+    public render(): JSX.Element {
         return (
             <S.Container>
                 <S.LoginContainer>

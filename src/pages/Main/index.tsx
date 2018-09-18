@@ -1,41 +1,41 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 
-import { getUserData, userChangeUserMode } from '../../user/actions';
 import { logoutUser } from '../../auth/actions';
+import { getUserData, userChangeUserMode } from '../../user/actions';
 
-import Header from 'components/Header';
 import BottomNavigation from 'components/BottomNavigation';
 import FloatingSwitcher from 'components/FloatingSwitcher';
+import Header from 'components/Header';
 
-import Dashboard from 'pages/Dashboard';
-import Profile from 'pages/Profile';
 import Calendar from 'pages/Calendar';
+import Dashboard from 'pages/Dashboard';
 import NotFound from 'pages/NotFound';
+import Profile from 'pages/Profile';
 
-import { user, userModeSettings, userMode } from '../../user/selectors';
+import { user, userMode, userModeSettings } from '../../user/selectors';
 
-class Main extends React.Component {
-    componentDidMount() {
+class Main extends React.Component<any, any> {
+    public componentDidMount(): void {
         this.props.getUserData();
     }
 
-    click = () => {
+    public click = () => {
         this.props.userChangeUserMode();
     };
 
-    render() {
+    public render(): JSX.Element {
         const { path } = this.props.match;
 
         return (
-            <Fragment>
+            <>
                 <Header />
                 {this.props.settings.isTrainerTitleVisible ? 'Trainer' : null}
                 <button onClick={this.props.logoutUser}>Wyloguj</button>
 
                 <Switch>
-                    <Route exact path={path} component={Dashboard} />
+                    <Route exact={true} path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
                     <Route path={`${path}/calendar`} component={Calendar} />
                     <Route component={NotFound} />
@@ -45,7 +45,7 @@ class Main extends React.Component {
                 ) : null}
 
                 <BottomNavigation />
-            </Fragment>
+            </>
         );
     }
 }

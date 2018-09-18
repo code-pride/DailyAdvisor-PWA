@@ -1,5 +1,5 @@
+import { Field, Form, withFormik } from 'formik';
 import * as React from 'react';
-import { Form, Field, withFormik } from 'formik';
 import * as yup from 'yup';
 
 import Button from 'components/Button';
@@ -27,13 +27,13 @@ const schema = yup.object().shape({
     password: yup.string().required(),
 });
 
-export const LoginForm = withFormik({
+export const LoginForm = withFormik<any, any>({
     mapPropsToValues: () => ({
         username: '',
         password: '',
     }),
     validationSchema: schema,
-    handleSubmit: (values, { props }) => {
+    handleSubmit: (values, { props }: any) => {
         props.onSubmit(values);
     },
 })(InnerForm);

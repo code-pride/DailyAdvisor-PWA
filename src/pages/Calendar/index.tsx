@@ -1,17 +1,18 @@
+import _defaults from 'lodash/defaults';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
 
+import { calendarDecrementMonth, calendarFetchEvents, calendarIncrementMonth } from './actions';
+import { daysSelector, eventsDaysSelector, monthNameSelector, yearSelector } from './selectors';
 import * as S from './styled';
-import { daysSelector, monthNameSelector, yearSelector, trainingDaysSelector } from './selectors';
-import { calendarIncrementMonth, calendarDecrementMonth, calendarFetchTrainings } from './actions';
 
-class Calendar extends React.Component {
-    componentDidMount() {
-        this.props.calendarFetchTrainings();
+class Calendar extends React.Component<any, any> {
+    public componentDidMount(): void {
+        this.props.calendarFetchEvents();
     }
 
-    render() {
+    public render(): JSX.Element {
         return (
             <S.Calendar>
                 {!this.props.isLoading ? (
@@ -26,7 +27,7 @@ class Calendar extends React.Component {
                         <S.Days>
                             {this.props.days.map((day, i) => (
                                 <S.Day
-                                    isTraining={this.props.trainingDays[day.unique]}
+                                    events={Object.keys(_defaults(this.props.events[day.unique]))}
                                     leftEdge={i % 7 === 0}
                                     topEdge={i <= 6}
                                     key={day.name}
@@ -44,18 +45,17 @@ class Calendar extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any): any {
     return {
         year: yearSelector(state),
         days: daysSelector(state),
         monthName: monthNameSelector(state),
-        trainingDays: trainingDaysSelector(state),
+        events: eventsDaysSelector(state),
         isLoading: state.calendar.isLoading,
         month: state.calendar.month,
     };
 }
-
 export default connect(
     mapStateToProps,
-    { calendarIncrementMonth, calendarDecrementMonth, calendarFetchTrainings },
+    { calendarIncrementMonth, calendarDecrementMonth, calendarFetchEvents },
 )(Calendar);

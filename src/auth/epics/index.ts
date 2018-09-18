@@ -4,14 +4,14 @@ import { map, switchMap } from 'rxjs/operators';
 import * as actions from '../actions';
 import { authApi } from '../api';
 
-export function authEpicFactory() {
+export function authEpicFactory(): any {
     const registerUserEpic = action$ =>
         action$.pipe(
             ofType(actions.AUTH_REGISTER_USER),
-            switchMap(action =>
+            switchMap((action: any) =>
                 authApi.registerUser(action.payload).catch(actions.registerUserRejected),
             ),
-            map(res => {
+            map((res: any) => {
                 if (res.status === 226) {
                     return actions.registerUserRejected('Email already in use');
                 }
@@ -22,7 +22,7 @@ export function authEpicFactory() {
     const registerUserConfirm = action$ =>
         action$.pipe(
             ofType(actions.AUTH_REGISTER_USER_CONFIRM),
-            switchMap(action =>
+            switchMap((action: any) =>
                 authApi
                     .registerUserConfirm(action.payload)
                     .then(actions.registerUserConfirmFulfilled)
@@ -33,13 +33,13 @@ export function authEpicFactory() {
     const loginUserEpic = actions$ =>
         actions$.pipe(
             ofType(actions.AUTH_LOGIN_USER),
-            map(action => actions.getCsrf(action.payload)),
+            map((action: any) => actions.getCsrf(action.payload)),
         );
 
     const csrfEpic = actions$ =>
         actions$.pipe(
             ofType(actions.AUTH_GET_CSRF),
-            switchMap(action =>
+            switchMap((action: any) =>
                 authApi
                     .getCsrf()
                     .then(() => actions.getCsrfFulfilled(action.payload))
@@ -50,7 +50,7 @@ export function authEpicFactory() {
     const csrfFullfilledEpic = actions$ =>
         actions$.pipe(
             ofType(actions.AUTH_GET_CSRF_FULFILLED),
-            switchMap(action =>
+            switchMap((action: any) =>
                 authApi
                     .loginUser(action.payload)
                     .then(actions.loginUserFulfilled)
@@ -61,7 +61,7 @@ export function authEpicFactory() {
     const logoutUserEpic = action$ =>
         action$.pipe(
             ofType(actions.AUTH_LOGOUT_USER),
-            switchMap(action =>
+            switchMap(() =>
                 authApi
                     .logoutUser()
                     .then(actions.logoutUserFulfilled)

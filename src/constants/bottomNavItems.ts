@@ -1,5 +1,5 @@
-import dashboard from '../assets/icons/navigation/dashboard.svg';
 import conversation from '../assets/icons/navigation/conversation.svg';
+import dashboard from '../assets/icons/navigation/dashboard.svg';
 import events from '../assets/icons/navigation/events.svg';
 import meal_plans from '../assets/icons/navigation/meal_plans.svg';
 import shop_list from '../assets/icons/navigation/shop_list.svg';

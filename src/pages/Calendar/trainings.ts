@@ -1,9 +1,7 @@
-import { trainingDaysSelector } from '../selectors';
-
-const data = {
+export const trainings = {
     trainName: 'Trening rozwojowy',
     trainText: 'Trening na wszytskie partie',
-    trainings: [
+    data: [
         {
             event: {
                 startDate: '2018-08-04T00:00:00.000Z',
@@ -41,7 +39,7 @@ const data = {
         {
             event: {
                 startDate: '2018-08-03T00:00:00.000Z',
-                endDate: '2018-08-10T00:00:00.000Z',
+                endDate: '2018-09-26T00:00:00.000Z',
                 startTime: '18:00:00',
                 endTime: '19:30:00',
                 isFullDayEvent: false,
@@ -91,30 +89,3 @@ const data = {
         },
     ],
 };
-
-describe('Calendar', () => {
-    it('Calculates dates', () => {
-        const state = {
-            calendar: {
-                month: 7,
-                data,
-            },
-        };
-
-        const trainingDays = [
-            '7215',
-            '7216',
-            '7217',
-            '7218',
-            '7219',
-            '7220',
-            '7221',
-            '7223',
-            '7230',
-            '7231',
-            '7237',
-        ];
-
-        expect(Object.keys(trainingDaysSelector(state))).toEqual(trainingDays);
-    });
-});

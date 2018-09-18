@@ -8,19 +8,19 @@ export const calendarDecrementMonth = () => ({
     type: CALENDAR_DECREMENT_MONTH,
 });
 
-export const CALENDAR_FETCH_TRAININGS = '[CALENDAR] FETCH_TRAININGS';
-export const calendarFetchTrainings = () => ({
-    type: CALENDAR_FETCH_TRAININGS,
+export const CALENDAR_FETCH_EVENTS = '[CALENDAR] FETCH_EVENTS';
+export const calendarFetchEvents = () => ({
+    type: CALENDAR_FETCH_EVENTS,
 });
 
-export const CALENDAR_FETCH_TRAININGS_FULFILLED = '[CALENDAR] FETCH_TRAININGS_FULFILLED';
-export const calendarFetchTrainingsFulfilled = trainings => ({
-    type: CALENDAR_FETCH_TRAININGS_FULFILLED,
-    payload: trainings,
+export const CALENDAR_FETCH_EVENTS_FULFILLED = '[CALENDAR] FETCH_EVENTS_FULFILLED';
+export const calendarFetchEventsFulfilled = payload => ({
+    type: CALENDAR_FETCH_EVENTS_FULFILLED,
+    payload,
 });
 
-export const CALENDAR_FETCH_TRAININGS_REJECTED = '[CALENDAR] FETCH_TRAININGS_REJECTED';
-export const calendarFetchTrainingsRejected = errorMsg => ({
-    type: CALENDAR_FETCH_TRAININGS_REJECTED,
+export const CALENDAR_FETCH_EVENTS_REJECTED = '[CALENDAR] FETCH_EVENTS_REJECTED';
+export const calendarFetchEventsRejected = errorMsg => ({
+    type: CALENDAR_FETCH_EVENTS_REJECTED,
     error: errorMsg,
 });

@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import { authenticatedSelector } from '../../auth/selectors';
 
-import Login from 'pages/Login';
-import Register from 'pages/Register/Register';
-import AfterRegister from 'pages/Register/AfterRegister';
-import RegisterConfirm from 'pages/Register/RegisterConfirm';
 import About from 'pages/About';
+import Login from 'pages/Login';
+import AfterRegister from 'pages/Register/AfterRegister';
+import Register from 'pages/Register/Register';
+import RegisterConfirm from 'pages/Register/RegisterConfirm';
 
 const NonAuthenticatedRoutes = ({ component: Component, ...rest }) => (
     <Route
@@ -17,16 +17,14 @@ const NonAuthenticatedRoutes = ({ component: Component, ...rest }) => (
             rest.authenticated ? (
                 <Redirect to="/main" />
             ) : (
-                <Fragment>
-                    <Switch>
-                        <Route exact path="/login" component={Login} />
-                        <Route path="/about" component={About} />
-                        <Route path="/register" component={Register} />
-                        <Route path="/after-register" component={AfterRegister} />
-                        <Route path="/registration-confirm/:token" component={RegisterConfirm} />
-                        <Redirect from="/*" to="/login" />
-                    </Switch>
-                </Fragment>
+                <Switch>
+                    <Route exact={true} path="/login" component={Login} />
+                    <Route path="/about" component={About} />
+                    <Route path="/register" component={Register} />
+                    <Route path="/after-register" component={AfterRegister} />
+                    <Route path="/registration-confirm/:token" component={RegisterConfirm} />
+                    <Redirect from="/*" to="/login" />
+                </Switch>
             )
         }
     />

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Route, Router, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-import { Route, Switch, Router } from 'react-router-dom';
 
 import store, { history, persistor } from './store';
 

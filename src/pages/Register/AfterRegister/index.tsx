@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 class AfterRegistration extends React.Component {
-    render() {
+    public render(): JSX.Element {
         return <div>AfterRegistration component</div>;
     }
 }

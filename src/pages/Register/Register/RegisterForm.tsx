@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Form, withFormik, Field } from 'formik';
-import * as yup from 'yup';
+import { Field, Form, withFormik } from 'formik';
 import { omit as _omit } from 'lodash';
+import * as React from 'react';
+import * as yup from 'yup';
 
 import Button from 'components/Button';
 
@@ -79,7 +79,7 @@ const schema = yup.object().shape({
     userType: yup.string().required(),
 });
 
-export const RegisterForm = withFormik({
+export const RegisterForm = withFormik<any, any>({
     mapPropsToValues: () => ({
         name: '',
         lastName: '',

@@ -1,12 +1,12 @@
-import * as actions from '../actions';
 import * as authActions from '../../auth/actions';
+import * as actions from '../actions';
 
 const initialState = {
     data: {},
     mode: 'client',
 };
 
-export function user(state = initialState, action) {
+export function user(state: any = initialState, action: any): any {
     switch (action.type) {
         case actions.GET_USER_DATA_FULFILLED:
             return {

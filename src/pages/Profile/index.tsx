@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Image from 'components/Image';
 import Tile from 'components/Tile';
 
-import { user } from '../../user/selectors';
 import { userUpgradeToCoach } from '../../user/actions';
+import { user } from '../../user/selectors';
 
 import { imageStorage } from 'constants/urls';
 
@@ -35,7 +35,7 @@ const Profile = props => {
     );
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any): any {
     return {
         user: user(state),
     };
