@@ -2,7 +2,7 @@ import * as actions from '../actions';
 
 const initialState = { authenticated: false };
 
-export function auth(state = initialState, action) {
+export function auth(state: any = initialState, action: any): any {
     switch (action.type) {
         case actions.AUTH_LOGIN_USER_FULFILLED:
             return {

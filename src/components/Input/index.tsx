@@ -1,9 +1,5 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 
-const Input = ({ url, content, onClick }) => (
-    <Fragment>
-        <input type="text" />
-    </Fragment>
-);
+const Input = ({ url, content, onClick }) => <input type="text" />;
 
 export default Input;

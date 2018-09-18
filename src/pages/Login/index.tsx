@@ -4,25 +4,25 @@ import { connect } from 'react-redux';
 import unknown from '../../assets/unknown.png';
 import { loginUser } from '../../auth/actions';
 
-import Image from 'components/Image';
-import { LoginForm } from './components/LoginForm';
-import SocialLogin from 'components/SocialLogin';
 import Button from 'components/Button';
+import Image from 'components/Image';
+import SocialLogin from 'components/SocialLogin';
+import { LoginForm } from './components/LoginForm';
 
 import * as S from './styled';
 
-class Login extends React.Component {
-    state = {
+class Login extends React.Component<any, any> {
+    public state: any = {
         isLoginFormDisplayed: false,
     };
 
-    toggleLogin = () => {
+    public toggleLogin = () => {
         this.setState({
             isLoginFormDisplayed: !this.state.isLoginFormDisplayed,
         });
     };
 
-    render() {
+    public render(): JSX.Element {
         return (
             <S.Container>
                 <S.LoginContainer>

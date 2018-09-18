@@ -1,12 +1,12 @@
-import { createSelector } from 'reselect';
-import moment from 'moment';
-import _range from 'lodash/range';
 import _defaultTo from 'lodash/defaultTo';
 import _isEmpty from 'lodash/isEmpty';
 import _last from 'lodash/last';
 import _merge from 'lodash/merge';
+import _range from 'lodash/range';
+import * as moment from 'moment';
+import { createSelector } from 'reselect';
 
-export const yearSelector = createSelector(
+export const yearSelector = createSelector<any, any, any>(
     state => state.calendar.month,
     month =>
         moment()
@@ -14,7 +14,7 @@ export const yearSelector = createSelector(
             .year(),
 );
 
-export const startOfMonthSelector = createSelector(
+export const startOfMonthSelector = createSelector<any, any, any>(
     state => state.calendar.month,
     month =>
         moment()
@@ -23,7 +23,7 @@ export const startOfMonthSelector = createSelector(
             .dayOfYear(),
 );
 
-export const endOfMonthSelector = createSelector(
+export const endOfMonthSelector = createSelector<any, any, any>(
     state => state.calendar.month,
     month =>
         moment()
@@ -32,7 +32,7 @@ export const endOfMonthSelector = createSelector(
             .dayOfYear(),
 );
 
-export const daysSelector = createSelector(
+export const daysSelector = createSelector<any, any, any, any, any>(
     state => state.calendar.month,
     startOfMonthSelector,
     endOfMonthSelector,
@@ -52,7 +52,7 @@ export const daysSelector = createSelector(
     },
 );
 
-export const monthNameSelector = createSelector(
+export const monthNameSelector = createSelector<any, any, any>(
     state => state.calendar.month,
     month =>
         moment()
@@ -60,7 +60,7 @@ export const monthNameSelector = createSelector(
             .format('MMMM'),
 );
 
-const dayWeekSelectors = createSelector(
+const dayWeekSelectors = createSelector<any, any, any, any, any>(
     state => state.calendar.month,
     startOfMonthSelector,
     endOfMonthSelector,
@@ -78,7 +78,7 @@ const mergeTrainings = (...allEvents) =>
     allEvents.slice(0, allEvents.length - 1).reduce((events, eventsByRecurringType) => {
         return {
             ...events,
-            ...Object.entries(eventsByRecurringType).reduce((eventsInDay, [key, value]) => {
+            ...Object.entries(eventsByRecurringType).reduce((eventsInDay, [key, value]: any) => {
                 const defaultEventsInDay = _defaultTo(eventsInDay[key], {});
                 const defaultEvents = _defaultTo(events[key], {});
                 const eventType = _last(allEvents);
@@ -174,7 +174,7 @@ const calculateEventsByDay = (data, month, days) => {
     }, {});
 };
 
-export const trainingDaysSelector = createSelector(
+export const trainingDaysSelector = createSelector<any, any, any, any, any>(
     state => state.calendar.trainings,
     state => state.calendar.month,
     dayWeekSelectors,

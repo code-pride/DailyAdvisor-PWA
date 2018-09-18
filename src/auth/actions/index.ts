@@ -1,86 +1,85 @@
-export const REGISTER_USER = 'REGISTER_USER';
+export const AUTH_REGISTER_USER = '[AUTH] REGISTER_USER';
 export const registerUser = payload => ({
+    type: AUTH_REGISTER_USER,
     payload,
-    type: REGISTER_USER,
 });
 
-export const REGISTER_USER_FULFILLED = 'REGISTER_USER_FULFILLED';
-export const registerUserFulfilled = payload => ({
-    payload,
-    type: REGISTER_USER_FULFILLED,
+export const AUTH_REGISTER_USER_FULFILLED = '[AUTH] REGISTER_USER_FULFILLED';
+export const registerUserFulfilled = () => ({
+    type: AUTH_REGISTER_USER_FULFILLED,
 });
 
-export const REGISTER_USER_REJECTED = 'REGISTER_USER_REJECTED';
+export const AUTH_REGISTER_USER_REJECTED = '[AUTH] REGISTER_USER_REJECTED';
 export const registerUserRejected = payload => ({
+    type: AUTH_REGISTER_USER_REJECTED,
     payload,
-    type: REGISTER_USER_REJECTED,
 });
 
-export const REGISTER_USER_CONFIRM = 'REGISTER_USER_CONFIRM';
+export const AUTH_REGISTER_USER_CONFIRM = '[AUTH] REGISTER_USER_CONFIRM';
 export const registerUserConfirm = payload => ({
+    type: AUTH_REGISTER_USER_CONFIRM,
     payload,
-    type: REGISTER_USER_CONFIRM,
 });
 
-export const REGISTER_USER_CONFIRM_FULFILLED = 'REGISTER_USER_CONFIRM_FULFILLED';
+export const AUTH_REGISTER_USER_CONFIRM_FULFILLED = '[AUTH] REGISTER_USER_CONFIRM_FULFILLED';
 export const registerUserConfirmFulfilled = payload => ({
+    type: AUTH_REGISTER_USER_CONFIRM_FULFILLED,
     payload,
-    type: REGISTER_USER_CONFIRM_FULFILLED,
 });
 
-export const REGISTER_USER_CONFIRM_REJECTED = 'REGISTER_USER_CONFIRM_REJECTED';
+export const AUTH_REGISTER_USER_CONFIRM_REJECTED = '[AUTH] REGISTER_USER_CONFIRM_REJECTED';
 export const registerUserConfirmRejected = payload => ({
+    type: AUTH_REGISTER_USER_CONFIRM_REJECTED,
     payload,
-    type: REGISTER_USER_CONFIRM_REJECTED,
 });
 
-export const LOGIN_USER = 'LOGIN_USER';
+export const AUTH_LOGIN_USER = '[AUTH] LOGIN_USER';
 export const loginUser = payload => ({
+    type: AUTH_LOGIN_USER,
     payload,
-    type: LOGIN_USER,
 });
 
-export const LOGIN_USER_FULFILLED = 'LOGIN_USER_FULFILLED';
+export const AUTH_LOGIN_USER_FULFILLED = '[AUTH] LOGIN_USER_FULFILLED';
 export const loginUserFulfilled = payload => ({
+    type: AUTH_LOGIN_USER_FULFILLED,
     payload,
-    type: LOGIN_USER_FULFILLED,
 });
 
-export const LOGIN_USER_REJECTED = 'LOGIN_USER_REJECTED';
+export const AUTH_LOGIN_USER_REJECTED = '[AUTH] LOGIN_USER_REJECTED';
 export const loginUserRejected = payload => ({
+    type: AUTH_LOGIN_USER_REJECTED,
     payload,
-    type: LOGIN_USER_REJECTED,
 });
 
-export const GET_CSRF = 'GET_CSRF';
+export const AUTH_GET_CSRF = '[AUTH] GET_CSRF';
 export const getCsrf = payload => ({
+    type: AUTH_GET_CSRF,
     payload,
-    type: GET_CSRF,
 });
 
-export const GET_CSRF_FULFILLED = 'GET_CSRF_FULFILLED';
+export const AUTH_GET_CSRF_FULFILLED = '[AUTH] GET_CSRF_FULFILLED';
 export const getCsrfFulfilled = payload => ({
+    type: AUTH_GET_CSRF_FULFILLED,
     payload,
-    type: GET_CSRF_FULFILLED,
 });
 
-export const GET_CSRF_REJECTED = 'GET_CSRF_REJECTED';
+export const AUTH_GET_CSRF_REJECTED = '[AUTH] GET_CSRF_REJECTED';
 export const getCsrfRejected = payload => ({
+    type: AUTH_GET_CSRF_REJECTED,
     payload,
-    type: GET_CSRF_REJECTED,
 });
 
-export const LOGOUT_USER = 'LOGOUT_USER';
+export const AUTH_LOGOUT_USER = '[AUTH] LOGOUT_USER';
 export const logoutUser = () => ({
-    type: LOGOUT_USER,
+    type: AUTH_LOGOUT_USER,
 });
 
-export const LOGOUT_USER_FULFILLED = 'LOGOUT_USER_FULFILLED';
+export const AUTH_LOGOUT_USER_FULFILLED = '[AUTH] LOGOUT_USER_FULFILLED';
 export const logoutUserFulfilled = () => ({
-    type: LOGOUT_USER_FULFILLED,
+    type: AUTH_LOGOUT_USER_FULFILLED,
 });
 
-export const LOGOUT_USER_REJECTED = 'LOGOUT_USER_REJECTED';
+export const AUTH_LOGOUT_USER_REJECTED = '[AUTH] LOGOUT_USER_REJECTED';
 export const logoutUserRejected = () => ({
-    type: LOGOUT_USER_REJECTED,
+    type: AUTH_LOGOUT_USER_REJECTED,
 });

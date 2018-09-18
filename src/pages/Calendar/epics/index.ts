@@ -4,7 +4,7 @@ import { delay, switchMap } from 'rxjs/operators';
 import * as actions from '../actions';
 import { calendarApi } from '../api';
 
-export function calendarEpicFactory() {
+export function calendarEpicFactory(): any {
     const fetchEventsEpic = action$ =>
         action$.pipe(
             ofType(actions.CALENDAR_FETCH_EVENTS),

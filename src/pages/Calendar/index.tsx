@@ -1,18 +1,18 @@
+import _defaults from 'lodash/defaults';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Spinner from 'react-svg-spinner';
-import _defaults from 'lodash/defaults';
 
+import { calendarDecrementMonth, calendarFetchEvents, calendarIncrementMonth } from './actions';
+import { daysSelector, eventsDaysSelector, monthNameSelector, yearSelector } from './selectors';
 import * as S from './styled';
-import { daysSelector, monthNameSelector, yearSelector, eventsDaysSelector } from './selectors';
-import { calendarIncrementMonth, calendarDecrementMonth, calendarFetchEvents } from './actions';
 
-class Calendar extends React.Component {
-    componentDidMount() {
+class Calendar extends React.Component<any, any> {
+    public componentDidMount(): void {
         this.props.calendarFetchEvents();
     }
 
-    render() {
+    public render(): JSX.Element {
         return (
             <S.Calendar>
                 {!this.props.isLoading ? (
@@ -45,7 +45,7 @@ class Calendar extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any): any {
     return {
         year: yearSelector(state),
         days: daysSelector(state),

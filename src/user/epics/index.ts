@@ -9,11 +9,11 @@ import { userApi } from '../mockedApi';
 // real api
 // import { userApi } from '../api';
 
-export function userDataEpicFactory() {
+export function userDataEpicFactory(): any {
     const getUserDataEpic = action$ =>
         action$.pipe(
             ofType(actions.GET_USER_DATA),
-            switchMap(action =>
+            switchMap(() =>
                 userApi
                     .getOwnProfile()
                     .then(data => actions.getUserDataFulfilled(data))
@@ -24,7 +24,7 @@ export function userDataEpicFactory() {
     const upgradeToCoachEpic = action$ =>
         action$.pipe(
             ofType(actions.USER_UPGRADE_TO_COACH),
-            switchMap(action =>
+            switchMap(() =>
                 userApi
                     .upgradeToCoach()
                     .then(actions.userUpgradeToCoachFulfilled)

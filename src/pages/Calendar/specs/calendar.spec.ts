@@ -115,6 +115,6 @@ describe('Calendar', () => {
             '7237',
         ];
 
-        expect(Object.keys(trainingDaysSelector(state, data))).toEqual(trainingDays);
+        expect(Object.keys(trainingDaysSelector(state))).toEqual(trainingDays);
     });
 });

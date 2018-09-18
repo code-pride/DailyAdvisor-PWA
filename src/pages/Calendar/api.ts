@@ -1,6 +1,6 @@
-import { trainings } from './trainings';
 import { diet } from './diet';
 import { meetings } from './meetings';
+import { trainings } from './trainings';
 
 const fetchTrainings = () => Promise.resolve(trainings);
 const fetchDiets = () => Promise.resolve(diet);

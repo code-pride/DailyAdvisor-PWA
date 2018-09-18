@@ -1,4 +1,4 @@
-import moment from 'moment';
+import * as moment from 'moment';
 import * as actions from '../actions';
 
 const month = moment().month();
@@ -17,7 +17,7 @@ const initialState = {
     isLoading: false,
 };
 
-export function calendar(state = initialState, action) {
+export function calendar(state: any = initialState, action: any): any {
     switch (action.type) {
         case actions.CALENDAR_INCREMENT_MONTH:
             return {

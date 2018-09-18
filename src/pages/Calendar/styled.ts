@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import _isEmpty from 'lodash/isEmpty';
+import styled from 'styled-components';
 
 const dayWidth = 40;
 
@@ -41,7 +41,7 @@ const getDayColor = events => {
     return color;
 };
 
-export const Day = styled.div`
+export const Day = styled.div<any>`
     border-radius: 10px;
     height: ${dayWidth}px;
     width: ${dayWidth}px;

@@ -11,7 +11,7 @@ export const getCookie = name => {
     return null;
 };
 
-export function deleteCookie(name, path, domain) {
+export function deleteCookie(name: string, path: string, domain: string): any {
     if (getCookie(name)) {
         document.cookie =
             name +
