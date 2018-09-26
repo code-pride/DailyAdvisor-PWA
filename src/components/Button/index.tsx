@@ -19,7 +19,9 @@ const Button = (props: Props) =>
             <S.Button>{props.value}</S.Button>
         </NavLink>
     ) : (
-        <S.Button onClick={props.onClick}>{props.content}</S.Button>
+        <S.Button onClick={props.onClick} {...props}>
+            {props.content}
+        </S.Button>
     );
 
 export default Button;

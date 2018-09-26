@@ -51,7 +51,7 @@ const Profile = (props: Props) => {
                             <S.H4>
                                 {props.user.lvl}, {props.user.favDiscipline}
                             </S.H4>
-                            <Button url="" value="Edit profile" />
+                            <Button url="profile/edit" value="Edit profile" />
                             <p>{props.user.about}</p>
                         </React.Fragment>
                     </S.UserData>

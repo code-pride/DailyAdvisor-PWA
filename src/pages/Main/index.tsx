@@ -37,8 +37,8 @@ class Main extends React.Component<any, any> {
 
                 <Switch>
                     <Route exact={true} path={path} component={Dashboard} />
-                    <Route path={`${path}/profile`} component={Profile} />
-                    <Route path={`${path}/edit-profile`} component={EditProfile} />
+                    <Route exact={true} path={`${path}/profile`} component={Profile} />
+                    <Route exact={true} path={`${path}/profile/edit`} component={EditProfile} />
                     <Route path={`${path}/calendar`} component={Calendar} />
                     <Route component={NotFound} />
                 </Switch>
