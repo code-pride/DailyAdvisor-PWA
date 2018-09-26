@@ -13,6 +13,7 @@ import Calendar from 'pages/Calendar';
 import Dashboard from 'pages/Dashboard';
 import NotFound from 'pages/NotFound';
 import Profile from 'pages/Profile';
+import EditProfile from 'pages/Profile/EditProfile';
 
 import { user, userMode, userModeSettings } from '../../user/selectors';
 
@@ -37,6 +38,7 @@ class Main extends React.Component<any, any> {
                 <Switch>
                     <Route exact={true} path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
+                    <Route path={`${path}/edit-profile`} component={EditProfile} />
                     <Route path={`${path}/calendar`} component={Calendar} />
                     <Route component={NotFound} />
                 </Switch>

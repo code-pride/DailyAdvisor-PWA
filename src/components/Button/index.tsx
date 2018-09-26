@@ -3,15 +3,23 @@ import { NavLink } from 'react-router-dom';
 
 import * as S from './styled';
 
-const Button = ({ url, content, onClick, value, type }: any) =>
-    type === 'submit' ? (
-        <S.Button type={type}>{value}</S.Button>
-    ) : url ? (
-        <NavLink to={url}>
-            <S.Button>{value}</S.Button>
+interface Props {
+    type?: string;
+    url?: string;
+    content?: string;
+    value?: string;
+    onClick?: () => void;
+}
+
+const Button = (props: Props) =>
+    props.type === 'submit' ? (
+        <S.Button type={props.type}>{props.value}</S.Button>
+    ) : props.url ? (
+        <NavLink to={props.url}>
+            <S.Button>{props.value}</S.Button>
         </NavLink>
     ) : (
-        <S.Button onClick={onClick}>{content}</S.Button>
+        <S.Button onClick={props.onClick}>{props.content}</S.Button>
     );
 
 export default Button;

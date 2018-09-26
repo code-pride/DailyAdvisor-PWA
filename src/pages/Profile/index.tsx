@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import Button from 'components/Button';
 import Tile from 'components/Tile';
 
 import { userUpgradeToCoach } from '../../user/actions';
@@ -50,6 +51,7 @@ const Profile = (props: Props) => {
                             <S.H4>
                                 {props.user.lvl}, {props.user.favDiscipline}
                             </S.H4>
+                            <Button url="" value="Edit profile" />
                             <p>{props.user.about}</p>
                         </React.Fragment>
                     </S.UserData>
