@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { Route, Router, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-import { Route, Switch, Router } from 'react-router-dom';
 
 import store, { history, persistor } from './store';
 
@@ -16,8 +16,7 @@ import NotFound from './pages/NotFound';
 
 // import Main from 'pages/Main';
 // import NotFound from 'pages/NotFound';
-
-import { StyledMainApp } from './styles';
+import { GlobalStyle } from './styled';
 
 const target = document.querySelector('#root');
 
@@ -25,13 +24,14 @@ render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <Router history={history}>
-                <StyledMainApp>
+                <React.Fragment>
+                    <GlobalStyle />
                     <Switch>
                         <AuthenticatedRoutes path="/main" component={Main} />
                         <NonAuthenticatedRoutes path="/" />
                         <Route component={NotFound} />
                     </Switch>
-                </StyledMainApp>
+                </React.Fragment>
             </Router>
         </PersistGate>
     </Provider>,

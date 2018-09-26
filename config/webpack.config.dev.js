@@ -59,6 +59,9 @@ module.exports = {
     output: {
         // Add /* filename */ comments to generated require()s in the output.
         pathinfo: true,
+        // Point sourcemap entries to original disk location (format as URL on Windows)
+        devtoolModuleFilenameTemplate: info =>
+            path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
         // This does not produce a real file. It's just the virtual path that is
         // served by WebpackDevServer in development. This is the JS bundle
         // containing code from all our entry points, and the Webpack runtime.
@@ -67,9 +70,6 @@ module.exports = {
         chunkFilename: 'static/js/[name].chunk.js',
         // This is the URL that app is served from. We use "/" in development.
         publicPath: publicPath,
-        // Point sourcemap entries to original disk location (format as URL on Windows)
-        devtoolModuleFilenameTemplate: info =>
-            path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
     },
     resolve: {
         // This allows you to set a fallback for where Webpack should look for modules.

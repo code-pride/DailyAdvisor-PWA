@@ -1,12 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
+import { routerMiddleware } from 'react-router-redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-import { rootReducer } from './rootReducer';
 import { rootEpic } from './rootEpic';
+import { rootReducer } from './rootReducer';
 
 const epicMiddleware = createEpicMiddleware();
 export const history = createHistory();
