@@ -5,6 +5,7 @@ import Button from 'components/Button';
 import Image from 'components/Image';
 import Tile from 'components/Tile';
 
+import { logoutUser } from '../../auth/actions';
 import { userUpgradeToCoach } from '../../user/actions';
 import { user, userModeSettings } from '../../user/selectors';
 
@@ -19,6 +20,7 @@ const Profile = props =>
         <S.Container>
             <S.UserData>
                 <h1>Profile</h1>
+                <Button onClick={props.logoutUser} content="Wyloguj" />
                 {props.user && (
                     <Image
                         src={`${imageStorage}${props.user.profilePictureId}.png`}
@@ -50,7 +52,7 @@ function mapStateToProps(state: any): any {
     };
 }
 
-const mapDispatchToProps = { userUpgradeToCoach };
+const mapDispatchToProps = { userUpgradeToCoach, logoutUser };
 
 export default connect(
     mapStateToProps,

@@ -34,8 +34,6 @@ class Main extends React.Component<any, any> {
         return (
             <>
                 <Header />
-                <button onClick={this.props.logoutUser}>Wyloguj</button>
-
                 <Switch>
                     <Route exact={true} path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
@@ -62,7 +60,7 @@ const mapStateToProps = state => ({
     userMode: userMode(state),
 });
 
-const mapDispatchToProps = { getUserData, logoutUser, userChangeUserMode };
+const mapDispatchToProps = { getUserData, userChangeUserMode };
 
 export default connect(
     mapStateToProps,

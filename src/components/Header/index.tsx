@@ -31,7 +31,7 @@ const Header = props => {
                     />
                 </NavLink>
             ) : (
-                <IconButton src={arrowLeft} alt="Go to calendar" height="50px" onClick={goBack} />
+                <IconButton src={arrowLeft} alt="Go to calendar" height="30px" onClick={goBack} />
             )}
             <S.MainHeading>
                 daily advisor
