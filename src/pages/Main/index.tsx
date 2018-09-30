@@ -12,6 +12,7 @@ import Header from 'components/Header';
 import Calendar from 'pages/Calendar';
 import Dashboard from 'pages/Dashboard';
 import NotFound from 'pages/NotFound';
+import People from 'pages/People';
 import Profile from 'pages/Profile';
 import Add from '../../advertisement/pages/Add';
 import Show from '../../advertisement/pages/Show';
@@ -38,6 +39,7 @@ class Main extends React.Component<any, any> {
                 <Switch>
                     <Route exact={true} path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
+                    <Route path={`${path}/people`} component={People} />
                     <Route path={`${path}/calendar`} component={Calendar} />
                     <Route path={`${path}/advertisement/add`} component={Add} />
                     <Route path={`${path}/advertisement/show`} component={Show} />
