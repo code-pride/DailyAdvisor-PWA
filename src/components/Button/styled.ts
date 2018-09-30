@@ -1,11 +1,25 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+interface Props {
+    accent?: string;
+}
+
+const buttonStyle = {
+    primary: `
+        color: #fff;
+        background-color: #6E7EFF;
+    `,
+    secondary: `
+        color: #fff;
+        background-color: #5a5a5a;
+    `,
+};
+
+export const Button = styled.button<Props>`
     font-size: 12px;
     font-weight: 700;
-    color: #fff;
-    background-color: #5a5a5a;
-    text-align: center;
+    ${props =>
+        props.accent ? buttonStyle[props.accent] : buttonStyle['primary']} text-align: center;
     display: inline-block;
     position: relative;
     text-decoration: none;
