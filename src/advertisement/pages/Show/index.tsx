@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getAdvert, getAllAdverts } from '../../../advertisement/actions';
 import { advert, adverts } from '../../../advertisement/selectors';
 
+import TagLine from 'components/TagLine';
+
 import * as S from './styled';
 
 class Show extends React.Component<any, any> {
@@ -15,7 +17,7 @@ class Show extends React.Component<any, any> {
     public render(): JSX.Element {
         return (
             <S.Container>
-                <div>Show advertisement</div>
+                <TagLine first="show" second="advertisement" invertColor={true} />
             </S.Container>
         );
     }
