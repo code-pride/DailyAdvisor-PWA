@@ -11,6 +11,7 @@ import Header from 'components/Header';
 
 import Calendar from 'pages/Calendar';
 import Dashboard from 'pages/Dashboard';
+import Events from 'pages/Events';
 import NotFound from 'pages/NotFound';
 import Profile from 'pages/Profile';
 
@@ -38,6 +39,7 @@ class Main extends React.Component<any, any> {
                     <Route exact={true} path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
                     <Route path={`${path}/calendar`} component={Calendar} />
+                    <Route path={`${path}/events`} component={Events} />
                     <Route component={NotFound} />
                 </Switch>
                 {this.props.user.userType === 'coach' ? (

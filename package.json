@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@types/react-datepicker": "^1.1.7",
         "autoprefixer": "7.1.6",
         "axios": "^0.18.0",
         "babel-jest": "^22.1.0",
@@ -28,6 +29,7 @@
         "promise": "8.0.1",
         "raf": "3.4.0",
         "react": "^16.4.2",
+        "react-datepicker": "^1.6.0",
         "react-dev-utils": "^5.0.1",
         "react-dom": "^16.4.2",
         "react-redux": "^5.0.7",
@@ -35,6 +37,7 @@
         "react-router-dom": "^4.3.1",
         "react-router-redux": "^4.0.8",
         "react-svg-spinner": "^1.0.1",
+        "recompact": "^3.4.0",
         "redux": "^4.0.0",
         "redux-observable": "^1.0.0",
         "redux-persist": "^5.10.0",
